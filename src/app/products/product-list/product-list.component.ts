@@ -12,4 +12,12 @@ export class ProductListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  deleteProduct(ean) {
+    this.products.filter(product => {
+      if (product.ean === ean) {
+        alert(`You resignate from buying ${product.name}`);
+      }
+    });
+  }
 }

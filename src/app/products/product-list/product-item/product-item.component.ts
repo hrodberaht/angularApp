@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Product } from "../../product.model";
 
 @Component({
@@ -10,11 +10,18 @@ export class ProductItemComponent implements OnInit {
   @Input()
   product: Product;
 
+  @Output()
+  onDelete = new EventEmitter<number>();
+
   constructor() {}
 
   ngOnInit() {}
 
   buyIt() {
     alert(`You buy ${this.product.name} for ${this.product.price}`);
+  }
+
+  deleteProduct() {
+    this.onDelete.emit(this.product.ean);
   }
 }
