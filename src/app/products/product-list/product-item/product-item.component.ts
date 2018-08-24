@@ -13,4 +13,8 @@ export class ProductItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  buyIt() {
+    alert(`You buy ${this.product.name} for ${this.product.price}`);
+  }
 }
