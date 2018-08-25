@@ -11,6 +11,7 @@ import { ProductDetailComponent } from "./products/product-detail/product-detail
 import { ProductItemComponent } from "./products/product-list/product-item/product-item.component";
 import { HomeComponent } from "./home/home.component";
 import { TimerComponent } from "./timer/timer.component";
+import { ProductSearchComponent } from './products/product-search/product-search.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     ProductDetailComponent,
     ProductItemComponent,
     HomeComponent,
-    TimerComponent
+    TimerComponent,
+    ProductSearchComponent
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],
