@@ -9,11 +9,11 @@ import { map } from "rxjs/operators";
   styleUrls: ["./timer.component.css"]
 })
 export class TimerComponent implements OnInit {
-  time: number;
+  time: Date;
   constructor() {}
 
   ngOnInit() {
     const timer = interval(1000);
-    const subscribe = timer.subscribe(val => (this.time = val));
+    const subscribe = timer.subscribe(val => (this.time = new Date()));
   }
 }
