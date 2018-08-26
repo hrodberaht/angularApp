@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { Product } from "../../product.model";
+import { Product } from "../../shared/product.model";
+import { ProductsService } from "../../product-data.service";
 
 @Component({
   selector: "app-product-item",
@@ -10,10 +11,7 @@ export class ProductItemComponent implements OnInit {
   @Input()
   product: Product;
 
-  @Output()
-  onDelete = new EventEmitter<number>();
-
-  constructor() {}
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit() {}
 
@@ -21,7 +19,7 @@ export class ProductItemComponent implements OnInit {
     alert(`You buy ${this.product.name} for ${this.product.price}`);
   }
 
-  deleteProduct() {
-    this.onDelete.emit(this.product.ean);
+  deleteProduct(ean) {
+    this.productsService.deleteProduct(ean);
   }
 }

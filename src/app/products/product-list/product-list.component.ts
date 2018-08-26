@@ -1,6 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Product } from "../product.model";
-import { ProductsService } from "../products.service";
 
 @Component({
   selector: "app-product-list",
@@ -8,18 +7,9 @@ import { ProductsService } from "../products.service";
   styleUrls: ["./product-list.component.css"]
 })
 export class ProductListComponent implements OnInit {
-  products: Array<Product>;
-  constructor(productServices: ProductsService) {
-    this.products = productServices.getProducts();
-  }
+  @Input()
+  products: Product[];
+  constructor() {}
 
   ngOnInit() {}
-
-  deleteProduct(ean) {
-    this.products.filter(product => {
-      if (product.ean === ean) {
-        alert(`You resignate from buying ${product.name}`);
-      }
-    });
-  }
 }
