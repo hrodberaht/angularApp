@@ -12,11 +12,13 @@ import { ProductItemComponent } from "./products/product-list/product-item/produ
 import { HomeComponent } from "./home/home.component";
 import { TimerComponent } from "./timer/timer.component";
 import { ProductSearchComponent } from "./products/product-search/product-search.component";
+import { AddProductComponent } from "./products/add-product/add-product.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "products", component: ProductsComponent },
-  { path: "products/detail/:ean", component: ProductDetailComponent }
+  { path: "products/detail/:ean", component: ProductDetailComponent },
+  { path: "products/add", component: AddProductComponent }
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     ProductItemComponent,
     HomeComponent,
     TimerComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    AddProductComponent
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],

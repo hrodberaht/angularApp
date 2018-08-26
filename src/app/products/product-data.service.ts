@@ -14,6 +14,10 @@ export class ProductDataService {
     return this.products;
   }
 
+  addProduct(product: Product) {
+    this.products.push(product);
+  }
+
   deleteProduct(ean: number) {
     this.products.filter(product => {
       if (product.ean === ean) {
