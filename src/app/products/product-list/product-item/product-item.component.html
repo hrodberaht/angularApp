@@ -1,6 +1,6 @@
 <p>Name: {{product.name}}</p>
 <p>Ean: {{product.ean}}</p>
-<p>Price: {{product.price}}</p>
+<p>Price: {{product.price | currency:'PLN':'symbol':'4.2-2'}}</p>
 <img [src]="product.imgUrl" [alt]="product.name">
 <p><button (click)="buyIt()">Buy</button></p>
 <p><button (click)="deleteProduct(product.ean)">Resignate from buying</button></p>

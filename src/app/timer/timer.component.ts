@@ -15,7 +15,6 @@ export class TimerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const observable = interval(1000);
     this.myObservable = observable.subscribe((val: any) => {
-      console.log(val);
       this.time = new Date();
     });
   }
