@@ -19,7 +19,6 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.ean = +params.ean;
-      console.log(this.ean);
     });
     this.product = this.productDataService.getProducts().find((prod: any) => {
       if (prod.ean === this.ean) return prod;
