@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { fromEvent } from "rxjs";
-import { ProductsService } from "../product-data.service";
+import { ProductDataService } from "../product-data.service";
 import { Product } from "../shared/product.model";
 
 @Component({
@@ -14,7 +14,7 @@ export class ProductSearchComponent implements OnInit {
 
   products: Product[];
   searchText: string;
-  constructor(productsService: ProductsService) {
+  constructor(productsService: ProductDataService) {
     this.products = productsService.getProducts();
   }
 

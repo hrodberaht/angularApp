@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Product } from "../../shared/product.model";
-import { ProductsService } from "../../product-data.service";
+import { ProductDataService } from "../../product-data.service";
 
 @Component({
   selector: "app-product-item",
@@ -11,7 +11,7 @@ export class ProductItemComponent implements OnInit {
   @Input()
   product: Product;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductDataService) {}
 
   ngOnInit() {}
 
