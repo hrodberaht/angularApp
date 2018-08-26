@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductDataService } from "../product-data.service";
 import { Product } from "../shared/product.model";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: "app-product-detail",
@@ -10,16 +10,19 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;
+  ean: number;
   constructor(
     private productDataService: ProductDataService,
     private route: ActivatedRoute //private location: Location
   ) {}
 
   ngOnInit() {
-    const ean = +this.route.snapshot.paramMap.get("ean");
-    console.log(ean);
+    this.route.params.subscribe((params: Params) => {
+      this.ean = +params.ean;
+      console.log(this.ean);
+    });
     this.product = this.productDataService.getProducts().find((prod: any) => {
-      if (prod.ean === ean) return prod;
+      if (prod.ean === this.ean) return prod;
     });
   }
 
