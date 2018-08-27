@@ -9,11 +9,11 @@
   </div>
   <div>
     <label for="ean">Ean</label>
-    <input required minlength="13" ngModel name="ean" #ean="ngModel" type="text" id="ean">
+    <input required minlength="13" ngModel name="ean" #ean="ngModel" type="number" id="ean">
     <div *ngIf="ean.touched">
       <p *ngIf="ean.errors?.required">Ean is requaired</p>
       <p *ngIf="ean.errors?.minlength">Ean must have {{ean.errors.minlength.requiredLength}}</p>
     </div>
   </div>
-  <button type="submit" [disabled]="false">Send</button>
+  <button type="submit" [disabled]="!f.valid">Send</button>
 </form>
