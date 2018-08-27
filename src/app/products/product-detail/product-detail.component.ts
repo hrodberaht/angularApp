@@ -13,7 +13,7 @@ export class ProductDetailComponent implements OnInit {
   ean: number;
   constructor(
     private productDataService: ProductDataService,
-    private route: ActivatedRoute //private location: Location
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {

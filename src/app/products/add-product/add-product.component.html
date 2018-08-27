@@ -1,16 +1,19 @@
-<form>
+<form (ngSubmit)="addProduct(f)" #f="ngForm">
   <div>
     <label for="name">Name</label>
-    <input required minlength="3" pattern="123" ngModel name="name" #name="ngModel" (change)="log(name)" type="text" id="name">
+    <input required minlength="3" ngModel name="name" #name="ngModel" type="text" id="name">
     <div *ngIf="name.touched">
       <p *ngIf="name.errors?.required">Name is required</p>
       <p *ngIf="name.errors?.minlength">Name is to short</p>
-      <p *ngIf="name.errors?.pattern">Not match</p>
     </div>
   </div>
   <div>
     <label for="ean">Ean</label>
-    <input ngModel name="ean" #ean="ngModel" (change)="log(ean)" type="text" id="ean">
+    <input required minlength="13" ngModel name="ean" #ean="ngModel" type="text" id="ean">
+    <div *ngIf="ean.touched">
+      <p *ngIf="ean.errors?.required">Ean is requaired</p>
+      <p *ngIf="ean.errors?.minlength">Ean must have {{ean.errors.minlength.requiredLength}}</p>
+    </div>
   </div>
-  <button (click)="addProduct()">Add</button>
+  <button type="submit" [disabled]="false">Send</button>
 </form>
